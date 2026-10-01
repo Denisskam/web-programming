@@ -18,7 +18,7 @@ header{
     margin-bottom: 30px;
 }
 
-headre h1{
+header h1{
     font-size: 2.5rem;
     color: #111827;
     margin-bottom: 15px;
@@ -30,7 +30,7 @@ header nav ul{
     gap: 20px;
 }
 
-headre nav a{
+header nav a{
     text-decoration: none;
   color: #4b5563;
   font-weight: 500;
