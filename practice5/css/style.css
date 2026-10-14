@@ -1,15 +1,16 @@
-/* 
-   ПРАКТИЧНА РОБОТА №5 
+/*
+   ПРАКТИЧНА РОБОТА №5 (Варіант 2: Портфоліо фотографа/дизайнера)
    
-   ОБҐРУНТУВАННЯ НЕЧІТКОЇ ВИМОГИ («дизайн не повинен відвертати увагу від робіт»):
-   1. Обрано гранично стриману монохромну палітру (чистий білий #ffffff,  сірий #f8f9fa 
-      та  графітовий текст #18181b). Відсутність насичених кольорових плашок фону 
-      дозволяє кольорам на фотографіях бути єдиним візуальним фокусом сторінки.
-   2.  Червоний колір (#c2410c) проявляється виключно в динаміці — при наведенні (hover)
-      на картку або інтерактивне посилання, що забезпечує зворотний зв'язок без візуального шуму.
-   3. Збільшено площу вільного простору (whitespace / gap: 36px) між роботами, а підписи зроблено 
+   ОБҐРУНТУВАННЯ НЕЧІТКОЇ ВИМОГИ :
+   1. Обрано стриману монохромну палітру (чистий білий #ffffff, м'який сірий #fbfbfb 
+      та глибокий графітовий текст #18181b).
+   2.  Акцентний  колір (#c2410c) застосовано ВИКЛЮЧНО 
+      до hover-стану карток галереї робіт. Посилання навігації та підвалу залишаються 
+      в монохромній гамі (підкреслення або графітовий відтінок) і не використовують акцентний колір.
+   3. Збільшено площу вільного простору (gap: 36px) між роботами, а підписи зроблено 
       дрібними та приглушеними (color: #71717a), щоб текст не конкурував із зображеннями.
- */
+   */
+
 
 
 *,
@@ -22,12 +23,13 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.95rem;          
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: #18181b;             
-  background-color: #fbfbfb;  
+  color: #18181b;              
+  background-color: #fbfbfb;
   margin: 0;
 }
+
 
 h1, h2, h3 {
   font-family: 'Playfair Display', Georgia, serif;
@@ -62,19 +64,21 @@ header nav ul {
 
 header nav a {
   text-decoration: none;
-  color: #71717a;              
+  color: #71717a;             
   font-weight: 500;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
+
 
 header nav a:hover {
-  color: #c2410c;             
+  color: #09090b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* 5. Основний контейнер */
 main {
   max-width: 1140px;
   margin: 0 auto;
@@ -88,7 +92,7 @@ section {
 h2 {
   font-size: 1.75rem;
   margin-bottom: 24px;
-  border-bottom: 2px solid #09090b; 
+  border-bottom: 2px solid #09090b;
   display: inline-block;
   padding-bottom: 6px;
 }
@@ -96,7 +100,7 @@ h2 {
 #about p {
   color: #52525b;
   font-size: 1.05rem;
-  max-width: 680px;           
+  max-width: 680px;
 }
 
 .cards {
@@ -108,7 +112,7 @@ h2 {
 article.card {
   background-color: #ffffff;
   border: 1px solid #e4e4e7;
-  border-radius: 4px;          
+  border-radius: 4px;
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -119,18 +123,18 @@ article.card img {
   height: 270px;
   object-fit: cover;
   display: block;
-  filter: grayscale(15%);    
-  transition: filter 0.3s ease, transform 0.4s ease;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
 }
 
 article.card:hover {
   transform: translateY(-4px);
-  border-color: #c2410c;       
-  box-shadow: 0 12px 24px -10px rgba(194, 65, 12, 0.15);
+  border-color: #c2410c;
+  box-shadow: 0 12px 24px -10px rgba(194, 65, 12, 0.2);
 }
 
 article.card:hover img {
-  filter: grayscale(0%);       
+  filter: grayscale(0%);
 }
 
 article.card h3 {
@@ -141,8 +145,8 @@ article.card h3 {
 
 article.card p {
   padding: 0 20px 20px;
-  font-size: 0.85rem;         
-  color: #71717a;              
+  font-size: 0.85rem;          
+  color: #71717a;             
   line-height: 1.5;
 }
 
@@ -175,12 +179,11 @@ aside li {
 
 aside li::before {
   content: "—";
-  color: #a1a1aa;              
+  color: #a1a1aa;
   position: absolute;
   left: 0;
 }
 
-/* 8. Footer */
 footer {
   border-top: 1px solid #e4e4e7;
   padding: 40px 24px;
@@ -198,8 +201,10 @@ footer a {
 }
 
 footer a:hover {
-  color: #c2410c;
+  color: #52525b;
 }
+
+
 
 
 @media (min-width: 600px) {
@@ -208,7 +213,7 @@ footer a:hover {
   }
 }
 
-/* Десктопний breakpoint */
+
 @media (min-width: 1024px) {
   header {
     flex-direction: row;
