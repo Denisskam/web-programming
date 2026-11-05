@@ -1,3 +1,8 @@
+/**
+ * Комп'ютерний практикум №7
+ * Варіант 2: Портфоліо фотографа/дизайнера
+ * Тема: Маніпуляція DOM за допомогою JavaScript
+ */
 console.log('JS successfully connected !');
 
 const Portfolioworks = [
@@ -24,7 +29,6 @@ showWorksByCategory(Portfolioworks, 'Дизайн');
 function isRecent(year){
     return (2026 - year) <= 2;
 }
-
 for (const work of Portfolioworks) {
   const age = 2026 - work.year;
   let status = '';
@@ -41,16 +45,12 @@ for (const work of Portfolioworks) {
 }
 
 const galleryContainer = document.querySelector('#gallery');
-const countElement = document.querySelector('#project-count');
+const countElement = document.querySelector('#projects-count');
 
-const oldCard = document.querySelector('.card');
-if (oldCard) {
-    oldCard.remove();
-}
+const initialCards = galleryContainer.querySelectorAll('.card');
+initialCards.forEach(card => card.remove());
 
 function renderProjects(works) {
-  galleryContainer.innerHTML = '';
-
   works.forEach(work => {
     const card = document.createElement('article');
     card.classList.add('card');
@@ -70,6 +70,7 @@ function renderProjects(works) {
     }
 
     card.append(img, title, meta);
+
     galleryContainer.append(card);
   });
 
